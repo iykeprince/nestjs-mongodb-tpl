@@ -1,10 +1,12 @@
 import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { Roles } from 'src/common/decorator';
 import { Public } from 'src/common/decorator/public.decorator';
 import { Role } from 'src/common/enum';
 import { JwtAuthGuard, RoleGuard } from 'src/common/guard';
 import { UserService } from './user.service';
 
+@ApiTags('User')
 @UseGuards(JwtAuthGuard, RoleGuard)
 @Controller('user')
 export class UserController {
